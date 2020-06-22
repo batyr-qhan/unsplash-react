@@ -99,8 +99,8 @@ class App extends Component {
             <Link to="/" onClick={this.showSearch}>
               <img className="logo" src={logo} alt="logo" />
             </Link>
-            <nav className="nav__links">
-              <ul className="nav__list">
+            <nav className="navLinks">
+              <ul className="navList">
                 <li onClick={this.showSearch}>
                   <img src={searchIcon} alt="search" />
                   <p>Search</p>

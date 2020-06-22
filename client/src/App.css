@@ -17,38 +17,6 @@ header {
   height: 80px;
 }
 
-@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
-
-  html,
-  body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  .fadeLine {
-    width: 333px;
-  }
-
-  .nav__list>li p {
-    display: none;
-  }
-
-  .nav__links > ul > li {
-    display: inline-block;
-    padding: 0px 5px;
-  }
-
-  .photoList {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style-type: none;
-    padding: 0 10%;
-}
-}
-
 .main {
   display: flex;
   flex-direction: column;
@@ -58,31 +26,29 @@ header {
 }
 
 .logo {
-  /* width: 160px;
-  height: 65px; */
   cursor: pointer;
 }
 
-.nav__links {
+.navLinks {
   list-style: none;
 }
 
-.nav__list {
+.navList {
   display: flex;
   align-items: center;
 }
 
-.nav__links li {
+.navLinks li {
   display: inline-block;
   padding: 0px 20px;
 }
 
-.nav__list li {
+.navList li {
   display: flex;
   align-items: center;
 }
 
-.nav__list li img {
+.navList li img {
   margin-right: 5px;
 }
 
@@ -128,7 +94,7 @@ header {
 
 .overlay {
   position: absolute;
-  transition: .3s ease;
+  transition: 0.3s ease;
   /* background-color: gray; */
   width: 225px;
   height: 225px;
@@ -140,8 +106,7 @@ header {
   opacity: 1;
 }
 
-.image:hover {
-  /* background: rgba(40, 36, 22, 0.5); */
+.photoContainer:hover .image {
   filter: blur(4px);
 }
 
@@ -160,7 +125,6 @@ header {
   width: 100%;
   bottom: 0px;
 }
-
 
 .searchBar {
   display: flex;
@@ -188,7 +152,7 @@ header {
   display: flex;
 }
 
-.favoriteList>li {
+.favoriteList > li {
   margin: 0 5px;
 }
 
@@ -196,7 +160,39 @@ header {
   list-style: none;
 }
 
-.collectionList>li {
+.collectionList > li {
   display: inline;
   margin: 0 8px;
+}
+
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  html,
+  body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fadeLine {
+    width: 333px;
+  }
+
+  .navList > li p {
+    display: none;
+  }
+
+  .navLinks > ul > li {
+    display: inline-block;
+    padding: 0px 5px;
+  }
+
+  .photoList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0 10%;
+  }
+
 }
