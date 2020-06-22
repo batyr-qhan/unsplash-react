@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.99ff525c.chunk.css",
+    "main.js": "/static/js/main.011a8cea.chunk.js",
+    "main.js.map": "/static/js/main.011a8cea.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fb3b939b.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fb3b939b.js.map",
+    "static/js/2.007e39ce.chunk.js": "/static/js/2.007e39ce.chunk.js",
+    "static/js/2.007e39ce.chunk.js.map": "/static/js/2.007e39ce.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.8533a278f4040bf7fd415463bfde12d5.js": "/precache-manifest.8533a278f4040bf7fd415463bfde12d5.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.99ff525c.chunk.css.map": "/static/css/main.99ff525c.chunk.css.map",
+    "static/js/2.007e39ce.chunk.js.LICENSE.txt": "/static/js/2.007e39ce.chunk.js.LICENSE.txt",
+    "static/media/download_24px_rounded.svg": "/static/media/download_24px_rounded.7067970e.svg",
+    "static/media/favorite_24px_rounded.svg": "/static/media/favorite_24px_rounded.c6ac71a1.svg",
+    "static/media/maximize-2.svg": "/static/media/maximize-2.489af8ab.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb3b939b.js",
+    "static/js/2.007e39ce.chunk.js",
+    "static/css/main.99ff525c.chunk.css",
+    "static/js/main.011a8cea.chunk.js"
+  ]
+}
