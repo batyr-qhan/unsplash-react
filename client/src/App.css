@@ -25,6 +25,8 @@ header {
   /* padding: 0 10%; */
 }
 
+/* Navigation */
+
 .logo {
   cursor: pointer;
 }
@@ -52,16 +54,31 @@ header {
   margin-right: 5px;
 }
 
+/* Search */
+
 .search {
   visibility: hidden;
   text-align: center;
   background-color: burlywood;
 }
 
+.searchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 160px;
+  background-color: black;
+  color: white;
+}
+
 .history {
   text-align: center;
   background-color: cornflowerblue;
 }
+
+/* Photos */
 
 .photoList {
   display: flex;
@@ -79,6 +96,11 @@ header {
   position: relative;
   margin: 10px;
   width: 30%;
+}
+
+.PhotoPage {
+  display: flex;
+  justify-content: center;
 }
 
 .image {
@@ -113,29 +135,24 @@ header {
 .userFullname {
   font-size: 22px;
   margin: 4px;
+  color: white;
 }
 
 .username {
   font-size: 16px;
   margin: 4px;
+  color: white;
 }
 
 .iconsContainer {
+  display: flex;
+  justify-content: space-around;
   position: absolute;
   width: 100%;
   bottom: 0px;
 }
 
-.searchBar {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 100%;
-  height: 160px;
-  background-color: black;
-  color: white;
-}
+/* Favorite Bar */
 
 .favoriteBar {
   display: flex;
@@ -152,7 +169,7 @@ header {
   display: flex;
 }
 
-.favoriteList > li {
+.favoriteList>li {
   margin: 0 5px;
 }
 
@@ -160,12 +177,15 @@ header {
   list-style: none;
 }
 
-.collectionList > li {
+.collectionList>li {
   display: inline;
   margin: 0 8px;
 }
 
+/* for iPhone X */
+
 @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+
   html,
   body {
     width: 100%;
@@ -177,11 +197,11 @@ header {
     width: 333px;
   }
 
-  .navList > li p {
+  .navList>li p {
     display: none;
   }
 
-  .navLinks > ul > li {
+  .navLinks>ul>li {
     display: inline-block;
     padding: 0px 5px;
   }
