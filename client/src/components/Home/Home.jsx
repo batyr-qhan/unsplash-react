@@ -1,16 +1,19 @@
-import React, {Component, useEffect, useState} from 'react'
+import React, { Component, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import './home.scss'
 
-import {ReactComponent as FavoriteIcon} from '../../images/favoriteIcon.svg'
-
+// Images
+import { ReactComponent as FavoriteIcon } from '../../images/favoriteIcon.svg'
 import downloadIcon from '../../images/download_24px_rounded.svg'
 import maximizeIcon from '../../images/maximize-2.svg'
 import line from '../../images/Line.png'
-import {Link} from 'react-router-dom'
-import {toJson} from 'unsplash-js'
+import { Link } from 'react-router-dom'
 
-const Home = ({unsplash}) => {
+// Hooks
+import {useSelector, useDispatch} from 'react-redux'
+import { toJson } from 'unsplash-js'
+
+const Home = ({ unsplash }) => {
 
   // const [collections, setCollections] = useState([])
   const [photos, setPhotos] = useState([])
