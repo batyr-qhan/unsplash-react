@@ -1,8 +1,8 @@
 import React from "react";
 
-import favoriteIcon from "../images/favoriteIcon.svg";
-import downloadIcon from "../images/download_24px_rounded.svg";
-import maximizeIcon from "../images/maximize-2.svg";
+import favoriteIcon from "../../images/favoriteIcon.svg";
+import downloadIcon from "../../images/download_24px_rounded.svg";
+import maximizeIcon from "../../images/maximize-2.svg";
 
 export default function Favorite(props) {
   return (

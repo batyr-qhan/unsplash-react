@@ -1,7 +1,7 @@
 import React from "react";
 
-import group1 from "../images/Group 11.png";
-import group2 from "../images/Group 10.png";
+import group1 from "../../images/Group 11.png";
+import group2 from "../../images/Group 10.png";
 
 export default function FavoriteBar() {
   return (

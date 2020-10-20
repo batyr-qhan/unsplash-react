@@ -1,20 +1,58 @@
 li,
 a,
 button {
-  font-family: "Montserrat", sans-serif;
+  font-family: "SF UI Display", sans-serif;
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
   text-decoration: none;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10%;
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
   background-color: black;
-  height: 80px;
+  font-family: "SF UI Display", sans-serif;
+
+  .header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //padding: 10px 10%;
+    background-color: black;
+    height: 80px;
+  }
+
+  &__logo {
+    cursor: pointer;
+  }
+
+  &__links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+    }
+
+    li:last-child {
+      margin-right: 0;
+    }
+
+
+  }
 }
 
 .main {
@@ -28,7 +66,6 @@ header {
 /* Navigation */
 
 .logo {
-  cursor: pointer;
 }
 
 .navLinks {
@@ -56,11 +93,11 @@ header {
 
 /* Search */
 
-.search {
-  visibility: hidden;
-  text-align: center;
-  background-color: burlywood;
-}
+//.search {
+//  visibility: hidden;
+//  text-align: center;
+//  background-color: burlywood;
+//}
 
 .searchBar {
   display: flex;
@@ -169,7 +206,7 @@ header {
   display: flex;
 }
 
-.favoriteList>li {
+.favoriteList > li {
   margin: 0 5px;
 }
 
@@ -177,7 +214,7 @@ header {
   list-style: none;
 }
 
-.collectionList>li {
+.collectionList > li {
   display: inline;
   margin: 0 8px;
 }
@@ -197,11 +234,11 @@ header {
     width: 333px;
   }
 
-  .navList>li p {
+  .navList > li p {
     display: none;
   }
 
-  .navLinks>ul>li {
+  .navLinks > ul > li {
     display: inline-block;
     padding: 0px 5px;
   }

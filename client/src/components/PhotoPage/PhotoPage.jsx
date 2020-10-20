@@ -1,14 +1,15 @@
-import React, { Component } from "react";
+import React, {Component} from 'react';
 
-import { useParams } from "react-router";
-import { withRouter } from "react-router-dom";
-import downloadIcon from "../images/download_24px_rounded.svg";
+import {useParams} from 'react-router';
+import {withRouter} from 'react-router-dom';
+import downloadIcon from '../../images/download_24px_rounded.svg';
 
-import Unsplash from "unsplash-js";
-const { toJson } = require("unsplash-js");
+import Unsplash from 'unsplash-js';
+
+const {toJson} = require('unsplash-js');
 
 const unsplash = new Unsplash({
-  accessKey: "QqpHhb7OaoMiq91Yz3_TPX6G7_y11KgjrT4rG6tkqfQ",
+  accessKey: 'QqpHhb7OaoMiq91Yz3_TPX6G7_y11KgjrT4rG6tkqfQ',
 });
 
 class PhotoPage extends Component {
@@ -49,7 +50,7 @@ class PhotoPage extends Component {
     return (
       <div className="PhotoPage">
         <div className="photoContainer">
-          <img src={this.state.url} alt="" className="image" />
+          <img src={this.state.url} alt="" className="image"/>
           <div className="overlay">
             <img
               src={this.state.profileImage}
@@ -63,7 +64,7 @@ class PhotoPage extends Component {
             <div className="iconsContainer">
               {/* <img src={favoriteIcon} alt="favorite" />{" "} */}
               {/* <img src={maximizeIcon} alt="maximize" />{" "} */}
-              <img src={downloadIcon} alt="download" />{" "}
+              <img src={downloadIcon} alt="download"/>{' '}
             </div>
           </div>
         </div>
