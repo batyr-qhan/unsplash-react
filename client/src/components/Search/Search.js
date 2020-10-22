@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
-import './home.scss'
+import './search.scss'
 
 // Images
 import { ReactComponent as FavoriteIcon } from '../../images/favoriteIcon.svg'
@@ -13,26 +13,26 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { toJson } from 'unsplash-js'
 
-//Actions
-import { addPhotos, addToFavorites } from '../../actions/photoActions'
+//Action
+import { addPhotos, addCollections } from '../../actions/photoActions'
 
 const Home = ({ unsplash }) => {
 
   const reduxPhotos = useSelector(state => state.photos)
-  const favorites = useSelector(state => state.favorites)
+  const collections = useSelector(state => state.collections)
   const dispatch = useDispatch()
 
   // const [collections, setCollections] = useState([])
   const [photos, setPhotos] = useState([])
 
   useEffect(() => {
-    // unsplash.collections
-    //   .listCollections(1, 8, 'popular')
-    //   .then(toJson)
-    //   .then((json) => {
-    //     // console.log(json);
-    //     setCollections(json)
-    //   })
+    unsplash.collections
+      .listCollections(1, 8, 'popular')
+      .then(toJson)
+      .then((json) => {
+        console.log(json);
+        dispatch(addCollections(json))
+      })
 
     unsplash.photos
       .listPhotos(2, 15, 'latest')
@@ -43,27 +43,27 @@ const Home = ({ unsplash }) => {
         // setPhotos(json)
 
       })
-  }, [photos, dispatch])
+  }, [photos])
 
   return (
     <div className='home'>
 
-      {/*<div className='home__search search'>*/}
-      {/*  <div className="search__inner">*/}
-      {/*    <h1>Поиск</h1>*/}
-      {/*    <img className="search__line" src={line} alt="line"/>*/}
-      {/*    <ul className="search__collections">*/}
-      {/*      {collections.map((item) => {*/}
-      {/*        return (*/}
-      {/*          <li>*/}
-      {/*            <Link to="/">{item.title}</Link>*/}
-      {/*          </li>*/}
-      {/*        )*/}
-      {/*      })}*/}
-      {/*    </ul>*/}
-      {/*  </div>*/}
+      <div className='home__search search'>
+        <div className="search__inner">
+          <h1>Поиск</h1>
+          <img className="search__line" src={line} alt="line"/>
+          <ul className="search__collections">
+            {collections.map((item) => {
+              return (
+                <li>
+                  <Link to="/">{item.title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
 
-      {/*</div>*/}
+      </div>
 
       <div className='container'>
         <div className="home__inner">
@@ -84,11 +84,6 @@ const Home = ({ unsplash }) => {
                     </p>
                     <p className="username">@{item.user.username}</p>
                     <div className="iconsContainer">
-
-                      <FavoriteIcon style={{fill: 'white'}}  onClick={() => {
-                        console.log('sdfsdfsdfsdf')
-                        dispatch(addToFavorites(item))
-                      }}/>
                       {/*{(() => {*/}
                       {/*  if (*/}
                       {/*    this.props.favoritesArray.some(*/}

@@ -1,13 +1,20 @@
 import React from "react";
 
+//Icons
+
 import favoriteIcon from "../../images/favoriteIcon.svg";
 import downloadIcon from "../../images/download_24px_rounded.svg";
 import maximizeIcon from "../../images/maximize-2.svg";
 
+import { useSelector, useDispatch } from 'react-redux'
+
 export default function Favorite(props) {
+
+  const favorites = useSelector(state => state.favorites)
+
   return (
     <ul className="photoList">
-      {props.favorites.map((item) => {
+      {favorites.map((item) => {
         return (
           <li key={item.id} className="photoContainer">
             <img src={item.urls.small} alt="" className="image" />

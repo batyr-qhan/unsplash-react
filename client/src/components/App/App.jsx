@@ -4,6 +4,7 @@ import './App.scss'
 //Components
 import Home from '../Home/Home'
 import Favorite from '../Favorite/Favorite'
+import Search from '../Search/Search'
 // import PhotoPage from '../PhotoPage/PhotoPage'
 
 //Packages etc
@@ -95,6 +96,10 @@ const App = () => {
           </Route>
           <Route path='/favorite'>
             <Favorite/>
+          </Route>
+
+          <Route path='/search'>
+            <Search unsplash={unsplash}/>
           </Route>
 
           <Route exact path='/'>
