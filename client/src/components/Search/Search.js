@@ -16,7 +16,7 @@ import { toJson } from 'unsplash-js'
 //Action
 import { addPhotos, addCollections } from '../../actions/photoActions'
 
-const Home = ({ unsplash }) => {
+const Search = ({ unsplash }) => {
 
   const reduxPhotos = useSelector(state => state.photos)
   const collections = useSelector(state => state.collections)
@@ -46,13 +46,12 @@ const Home = ({ unsplash }) => {
   }, [photos])
 
   return (
-    <div className='home'>
-
-      <div className='home__search search'>
-        <div className="search__inner">
+    <div className='search'>
+      <div className='search__panel panel'>
+        <div className="panel__inner">
           <h1>Поиск</h1>
-          <img className="search__line" src={line} alt="line"/>
-          <ul className="search__collections">
+          <img className="panel__line" src={line} alt="line"/>
+          <ul className="panel__collections">
             {collections.map((item) => {
               return (
                 <li>
@@ -66,24 +65,24 @@ const Home = ({ unsplash }) => {
       </div>
 
       <div className='container'>
-        <div className="home__inner">
+        <div className="search__inner">
 
-          <ul className="photoList">
+          <ul className="search__list">
             {reduxPhotos.map((item) => {
               return (
-                <li key={item.id} className="photoContainer">
-                  <img src={item.urls.small} alt="" className="image"/>
-                  <div className="overlay">
+                <li key={item.id} className="search__photo photo">
+                  <img src={item.urls.small} alt="" className="photo__image"/>
+                  <div className="photo__overlay">
                     <img
                       src={item.user.profile_image.medium}
                       alt="avatar"
-                      className="avatar"
+                      className="photo__avatar"
                     />
-                    <p className="userFullname">
+                    <p className="photo__fullname">
                       {item.user.first_name} {item.user.last_name}
                     </p>
-                    <p className="username">@{item.user.username}</p>
-                    <div className="iconsContainer">
+                    <p className="photo__username">@{item.user.username}</p>
+                    <div className="photo__icons">
                       {/*{(() => {*/}
                       {/*  if (*/}
                       {/*    this.props.favoritesArray.some(*/}
@@ -127,8 +126,8 @@ const Home = ({ unsplash }) => {
   )
 }
 
-Home.propTypes = {
+Search.propTypes = {
   unsplash: PropTypes.string
 }
 
-export default Home
+export default Search

@@ -1,26 +1,45 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import './App.scss'
 
-//Components
+// Components
 import Home from '../Home/Home'
 import Favorite from '../Favorite/Favorite'
 import Search from '../Search/Search'
+import History from '../History/History'
 // import PhotoPage from '../PhotoPage/PhotoPage'
 
-//Packages etc
+// Icons
 import { ReactComponent as FavoriteIcon } from '../../images/favoriteIcon.svg'
 import logo from '../../images/logo.png'
 import history from '../../images/history_24px.png'
 import searchIcon from '../../images/search_24px.png'
+
+// Packages
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import Unsplash from 'unsplash-js'
+import Unsplash, { toJson } from 'unsplash-js'
+import { addPhotos } from '../../actions/photoActions'
 // const { toJson } = require('unsplash-js')
+import { useSelector, useDispatch } from 'react-redux'
 
 const unsplash = new Unsplash({
   accessKey: 'QqpHhb7OaoMiq91Yz3_TPX6G7_y11KgjrT4rG6tkqfQ'
 })
 
 const App = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    unsplash.photos
+      .listPhotos(2, 15, 'latest')
+      .then(toJson)
+      .then((json) => {
+        dispatch(addPhotos(json))
+        // addPhotos(json)
+        // setPhotos(json)
+
+      })
+  }, [dispatch])
 
   // addFavorites(arg)
   // {
@@ -100,6 +119,10 @@ const App = () => {
 
           <Route path='/search'>
             <Search unsplash={unsplash}/>
+          </Route>
+
+          <Route path='/history'>
+            <History unsplash={unsplash}/>
           </Route>
 
           <Route exact path='/'>
