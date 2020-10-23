@@ -107,7 +107,7 @@ const History = ({ unsplash }) => {
 }
 
 History.propTypes = {
-  unsplash: PropTypes.string
+  unsplash: PropTypes.object
 }
 
 export default History

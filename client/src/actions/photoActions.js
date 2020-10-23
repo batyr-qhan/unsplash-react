@@ -18,3 +18,10 @@ export const addToFavorites = (photo) => {
     photo
   }
 }
+
+export const removeFromFavorites = (photo) => {
+  return {
+    type: 'REMOVE_FROM_FAVORITES',
+    photo
+  }
+}

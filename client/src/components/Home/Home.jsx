@@ -14,7 +14,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { toJson } from 'unsplash-js'
 
 //Actions
-import { addPhotos, addToFavorites } from '../../actions/photoActions'
+import { addPhotos, addToFavorites, removeFromFavorites } from '../../actions/photoActions'
 
 const Home = ({ unsplash }) => {
 
@@ -60,41 +60,39 @@ const Home = ({ unsplash }) => {
                     </p>
                     <p className="photo__username">@{item.user.username}</p>
                     <div className="photo__icons">
+                      <div>
+                        {(() =>
+                            (
+                              favorites.some(
+                                (el) => el.id === item.id
+                              )
+                            ) ? (
+                                <FavoriteIcon style={{ fill: 'red' }} onClick={() => {
+                                  dispatch(removeFromFavorites(item))
+                                }}/>
+                              ) :
+                              <FavoriteIcon style={{ fill: 'white' }} onClick={() => {
+                                console.log('sdfsdfsdfsdf')
+                                dispatch(addToFavorites(item))
+                              }}/>
 
-                      <FavoriteIcon style={{fill: 'white'}}  onClick={() => {
-                        console.log('sdfsdfsdfsdf')
-                        dispatch(addToFavorites(item))
-                      }}/>
-                      {/*{(() => {*/}
-                      {/*  if (*/}
-                      {/*    this.props.favoritesArray.some(*/}
-                      {/*      (el) => el.id === item.id*/}
-                      {/*    )*/}
-                      {/*  ) {*/}
-                      {/*    return (*/}
-                      {/*      <FavoriteIcon*/}
-                      {/*        className="likeIcon"*/}
-                      {/*        onClick={() => {*/}
-                      {/*          this.props.removeFavorites(item)*/}
-                      {/*        }}*/}
-                      {/*        style={{fill: 'red'}}*/}
-                      {/*      />*/}
-                      {/*    )*/}
-                      {/*  } else*/}
-                      {/*    return (*/}
-                      {/*      <FavoriteIcon*/}
-                      {/*        className="likeIcon"*/}
-                      {/*        onClick={() => {*/}
-                      {/*          this.props.addFavorites(item)*/}
-                      {/*        }}*/}
-                      {/*        style={{fill: 'white'}}*/}
-                      {/*      />*/}
-                      {/*    )*/}
-                      {/*})()}*/}
-                      <a href={`photo/${item.id}`}>
-                        <img src={maximizeIcon} alt="maximize"/>
-                      </a>
-                      <img src={downloadIcon} alt="download"/>{' '}
+                        )()}
+
+
+                        {/*<FavoriteIcon style={{ fill: 'white' }} onClick={() => {*/}
+                        {/*  console.log('sdfsdfsdfsdf')*/}
+                        {/*  dispatch(addToFavorites(item))*/}
+                        {/*}}/>*/}
+                      </div>
+
+                      <div>
+                        <a href={`photo/${item.id}`}>
+                          <img src={maximizeIcon} alt="maximize"/>
+                        </a>
+                      </div>
+                      <div>
+                        <img src={downloadIcon} alt="download"/>{' '}
+                      </div>
                     </div>
                   </div>
                 </li>
@@ -109,7 +107,7 @@ const Home = ({ unsplash }) => {
 }
 
 Home.propTypes = {
-  unsplash: PropTypes.string
+  unsplash: PropTypes.object
 }
 
 export default Home

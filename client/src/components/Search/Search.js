@@ -22,40 +22,54 @@ const Search = ({ unsplash }) => {
   const collections = useSelector(state => state.collections)
   const dispatch = useDispatch()
 
-  // const [collections, setCollections] = useState([])
-  const [photos, setPhotos] = useState([])
+  const [value, setValue] = useState('')
 
   useEffect(() => {
     unsplash.collections
       .listCollections(1, 8, 'popular')
       .then(toJson)
       .then((json) => {
-        console.log(json);
         dispatch(addCollections(json))
       })
+  }, [dispatch])
 
-    unsplash.photos
-      .listPhotos(2, 15, 'latest')
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(value)
+    unsplash.search.photos(value, 1, 10, { orientation: 'portrait', color: 'green' })
       .then(toJson)
-      .then((json) => {
+      .then(json => {
+        console.log(json)
         dispatch(addPhotos(json))
-        // addPhotos(json)
-        // setPhotos(json)
-
+        // Your code
       })
-  }, [photos])
+  }
 
   return (
     <div className='search'>
       <div className='search__panel panel'>
         <div className="panel__inner">
-          <h1>Поиск</h1>
+          <form onSubmit={handleSubmit}>
+            <input className='panel__input' placeholder='Search' onChange={handleChange}/>
+          </form>
           <img className="panel__line" src={line} alt="line"/>
           <ul className="panel__collections">
             {collections.map((item) => {
               return (
-                <li>
-                  <Link to="/">{item.title}</Link>
+                <li key={item.id} onClick={() => {
+                  unsplash.collections
+                    .getCollectionPhotos(item.id, 1, 9, 'popular')
+                    .then(toJson)
+                    .then((json) => {
+                      // console.log(json);
+                      dispatch(addPhotos(json))
+                    })
+                }}>
+                  {item.title}
                 </li>
               )
             })}
@@ -127,7 +141,7 @@ const Search = ({ unsplash }) => {
 }
 
 Search.propTypes = {
-  unsplash: PropTypes.string
+  unsplash: PropTypes.object
 }
 
 export default Search

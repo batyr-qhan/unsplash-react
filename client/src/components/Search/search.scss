@@ -19,6 +19,20 @@
       //font-family: "SF UI Display", sans-serif;
     }
 
+    &__input {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 48px;
+      text-align: center;
+
+      &::placeholder {
+        color: white;
+        //font-size: ;
+        text-align: center;
+      }
+    }
+
     &__collections {
       list-style: none;
       max-width: 900px;
@@ -31,7 +45,7 @@
         display: inline-block;
         margin: 0 8px;
         font-family: "SF UI Display", sans-serif;
-
+        cursor: pointer;
       }
     }
     h1 {

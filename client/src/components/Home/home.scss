@@ -47,8 +47,7 @@
       .photo__overlay {
         opacity: 1;
       }
-
-      .photo__image {
+      .photo__image{
         filter: blur(4px);
       }
     }
@@ -75,6 +74,12 @@
       position: absolute;
       width: 100%;
       bottom: 0px;
+      div{
+        transition: transform 0.2s linear;
+      }
+      div:hover {
+        transform: scale(1.5);
+      }
     }
   }
 }

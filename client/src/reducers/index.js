@@ -12,8 +12,8 @@ function rootReducer (state = initialState, action) {
       return { ...state, collections: action.collections }
     case 'ADD_TO_FAVORITES':
       return { ...state, favorites: [...state.favorites, action.photo] }
-    // case 'REMOVE_FROM_FAVORITES':
-    //   return { ...state, collections: action.collections }
+    case 'REMOVE_FROM_FAVORITES':
+      return { ...state, favorites: state.favorites.filter(item => item.id !== action.photo.id) }
     default:
       return state
   }
