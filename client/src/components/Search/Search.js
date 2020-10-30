@@ -41,7 +41,6 @@ const Search = ({ unsplash }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(value)
     unsplash.search.photos(value, 1, 10, { orientation: 'portrait', color: 'green' })
       .then(toJson)
       .then(json => {
